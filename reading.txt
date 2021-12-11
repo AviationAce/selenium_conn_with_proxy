@@ -4,3 +4,6 @@ https://codingtutz.com/selenium-cheatsheet-python/
 
 https://www.sslproxies.org/
 https://free-proxy-list.net/blog/rotating-proxy-selenium
+
+https://www.py4u.net/discuss/201238
+
