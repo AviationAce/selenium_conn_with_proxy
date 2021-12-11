@@ -1,0 +1,13 @@
+1639198927765	geckodriver	INFO	Listening on 127.0.0.1:57039
+1639198930804	mozrunner::runner	INFO	Running command: "C:\\Program Files (x86)\\Mozilla Firefox\\firefox.exe" "--marionette" "--single-process" "--disable-dev-shm-usage" "--incognito" "--disable-blink-features=AutomationControlled" "--disable-blink-features=AutomationControlled" "disable-infobars" "user-agent=" "-no-remote" "-profile" "C:\\Users\\CHOPPE~1\\AppData\\Local\\Temp\\rust_mozprofiledt1xE1"
+1639198977988	geckodriver	INFO	Listening on 127.0.0.1:57157
+1639198981031	mozrunner::runner	INFO	Running command: "C:\\Program Files (x86)\\Mozilla Firefox\\firefox.exe" "--marionette" "--single-process" "--disable-dev-shm-usage" "--incognito" "--disable-blink-features=AutomationControlled" "--disable-blink-features=AutomationControlled" "disable-infobars" "user-agent=" "-no-remote" "-profile" "C:\\Users\\CHOPPE~1\\AppData\\Local\\Temp\\rust_mozprofileX6yu73"
+1639198981458	Marionette	INFO	Marionette enabled
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at C:\\Users\\ChopperDave64\\AppData\\Local\\Temp\\rust_mozprofileX6yu73\\search.json.mozlz4", (void 0)))
+console.error: Region.jsm: "Error fetching region" (new TypeError("NetworkError when attempting to fetch resource.", ""))
+console.error: Region.jsm: "Failed to fetch region" (new Error("NO_RESULT", "resource://gre/modules/Region.jsm", 419))
+console.warn: TopSitesFeed: Failed to fetch data from Contile server: NetworkError when attempting to fetch resource.
+1639198984127	Marionette	INFO	Listening on port 57170
+1639198984242	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: resource://gre/modules/XULStore.jsm, line 66: Error: Can't find profile directory.
+JavaScript error: resource://gre/modules/XULStore.jsm, line 66: Error: Can't find profile directory.

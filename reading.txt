@@ -1,0 +1,6 @@
+https://stackoverflow.com/questions/68703194/change-proxy-in-selenium-python
+
+https://codingtutz.com/selenium-cheatsheet-python/
+
+https://www.sslproxies.org/
+https://free-proxy-list.net/blog/rotating-proxy-selenium
