@@ -8,7 +8,9 @@ def main():
     print('main start')
     ff_conn = FireFox_conn.ff_WebDriver()
     ff_driver = ff_conn.driver
-    ff_driver.get('https://www.expressvpn.com/what-is-my-ip')
+    # ff_driver.get('https://www.expressvpn.com/what-is-my-ip')
+    ff_driver.get('http://httpbin.org/ip')
+    GU.GenericUtils.MyPublidIP(True)
     GU.GenericUtils.SleepFor(10, 'will quit after pause')
     ff_driver.quit()
 

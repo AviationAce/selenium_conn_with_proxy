@@ -6198,3 +6198,81 @@ JavaScript error: resource://gre/modules/XULStore.jsm, line 66: Error: Can't fin
 
 ###!!! [Parent][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
 
+1639362684202	geckodriver	INFO	Listening on 127.0.0.1:50991
+1639362687497	mozrunner::runner	INFO	Running command: "C:\\Program Files (x86)\\Mozilla Firefox\\firefox.exe" "--marionette" "--single-process" "--disable-dev-shm-usage" "--incognito" "--disable-blink-features=AutomationControlled" "--disable-blink-features=AutomationControlled" "disable-infobars" "user-agent=" "--remote-debugging-port" "50992" "-no-remote" "-profile" "C:\\Users\\CHOPPE~1\\AppData\\Local\\Temp\\rust_mozprofilecvIOlR"
+1639362687851	Marionette	INFO	Marionette enabled
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at C:\\Users\\ChopperDave64\\AppData\\Local\\Temp\\rust_mozprofilecvIOlR\\search.json.mozlz4", (void 0)))
+DevTools listening on ws://localhost:50992/devtools/browser/7a546d8a-8c41-429a-b967-f12dff04152b
+1639362690725	Marionette	INFO	Listening on port 51007
+console.warn: TopSitesFeed: Failed to fetch data from Contile server: NetworkError when attempting to fetch resource.
+1639362690923	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: resource://gre/modules/XULStore.jsm, line 66: Error: Can't find profile directory.
+JavaScript error: resource://gre/modules/XULStore.jsm, line 66: Error: Can't find profile directory.
+1639362702303	Marionette	INFO	Stopped listening on port 51007
+
+###!!! [Parent][MessageChannel] Error: (msgtype=0x39007A,name=PContent::Msg_DestroyBrowsingContextGroup) Closed channel: cannot send/recv
+
+
+###!!! [Child][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+1639362721923	geckodriver	INFO	Listening on 127.0.0.1:51163
+1639362725019	mozrunner::runner	INFO	Running command: "C:\\Program Files (x86)\\Mozilla Firefox\\firefox.exe" "--marionette" "--single-process" "--disable-dev-shm-usage" "--incognito" "--disable-blink-features=AutomationControlled" "--disable-blink-features=AutomationControlled" "disable-infobars" "user-agent=" "--remote-debugging-port" "51167" "-no-remote" "-profile" "C:\\Users\\CHOPPE~1\\AppData\\Local\\Temp\\rust_mozprofile0yLyg5"
+1639362725364	Marionette	INFO	Marionette enabled
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at C:\\Users\\ChopperDave64\\AppData\\Local\\Temp\\rust_mozprofile0yLyg5\\search.json.mozlz4", (void 0)))
+console.warn: TopSitesFeed: Failed to fetch data from Contile server: NetworkError when attempting to fetch resource.
+DevTools listening on ws://localhost:51167/devtools/browser/abfdf023-950a-4806-9301-02b88051e9fe
+1639362729093	Marionette	INFO	Listening on port 51176
+1639362729236	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: resource://gre/modules/XULStore.jsm, line 66: Error: Can't find profile directory.
+JavaScript error: resource://gre/modules/XULStore.jsm, line 66: Error: Can't find profile directory.
+1639362743724	Marionette	INFO	Stopped listening on port 51176
+
+###!!! [Parent][MessageChannel] Error: (msgtype=0x39007A,name=PContent::Msg_DestroyBrowsingContextGroup) Closed channel: cannot send/recv
+
+
+###!!! [Child][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Child][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Child][MessageChannel] Error: (msgtype=0x230030,name=PBrowser::Msg___delete__) Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Child][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Child][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Child][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Child][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Child][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Child][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Child][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Child][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Child][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+1639362853443	geckodriver	INFO	Listening on 127.0.0.1:64688
+1639362856514	mozrunner::runner	INFO	Running command: "C:\\Program Files (x86)\\Mozilla Firefox\\firefox.exe" "--marionette" "--single-process" "--disable-dev-shm-usage" "--incognito" "--disable-blink-features=AutomationControlled" "--disable-blink-features=AutomationControlled" "disable-infobars" "user-agent=" "--remote-debugging-port" "64689" "-no-remote" "-profile" "C:\\Users\\CHOPPE~1\\AppData\\Local\\Temp\\rust_mozprofileHWtfY8"
+1639362856890	Marionette	INFO	Marionette enabled
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at C:\\Users\\ChopperDave64\\AppData\\Local\\Temp\\rust_mozprofileHWtfY8\\search.json.mozlz4", (void 0)))
+console.warn: TopSitesFeed: Failed to fetch data from Contile server: NetworkError when attempting to fetch resource.
+DevTools listening on ws://localhost:64689/devtools/browser/f89db57c-1183-4a46-a758-2f57c3f22c5a
+1639362859624	Marionette	INFO	Listening on port 64697
+1639362859707	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: resource://gre/modules/XULStore.jsm, line 66: Error: Can't find profile directory.
+JavaScript error: resource://gre/modules/XULStore.jsm, line 66: Error: Can't find profile directory.
+1639362871331	Marionette	INFO	Stopped listening on port 64697

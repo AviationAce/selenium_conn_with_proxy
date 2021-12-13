@@ -34,3 +34,30 @@ class ff_Profile:
 
         # self.driver = webdriver.Firefox(executable_path=gd_path, options=ff_options, firefox_profile=ff_profile, service = ff_service)
         # self.driver = webdriver.Firefox(options=ff_options, firefox_profile=ff_profile, service=ff_service)
+
+
+
+
+NOTE: These would have been nice but they use a differnt connection and thus not behing the proxy.  Will rewrite to read for the driver object.
+import urllib.request
+from json import loads
+
+    def MyPublidIP(TermPrint=False):
+        # This line will connect to the website, read its contents
+        # and parse the JSON output
+        # data = loads(urllib3.open("http://httpbin.org/ip").read())
+        wp = urllib.request.urlopen("http://httpbin.org/ip")
+        data = loads(wp.read())
+        if TermPrint:
+            print("The public IP is : %s" % data["origin"])
+        return data["origin"]
+
+    def CheckPubIP(self, ip_to_check):
+        ret = False
+        detected_IP = self.MyPublidIP()
+        if detected_IP == ip_to_check:
+            ret = True
+        else:
+            print('detected IP: ' + detected_IP +
+                  '  |  Proxy IP should be: ' + ip_to_check)
+        return ret
