@@ -36,6 +36,7 @@ class ff_Options:
             '--disable-blink-features=AutomationControlled')
         self.ff_options.add_argument("disable-infobars")
         self.ff_options.add_argument('user-agent=')
+        # NOTE: Using ShadowSocks on Windows.  That's why there is not username and password
         my_proxy_addr = '127.0.0.1:1080'
         ip, port = my_proxy_addr.split(':')
         self.ff_options.set_preference('network.proxy.type', 1)

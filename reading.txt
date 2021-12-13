@@ -17,3 +17,5 @@ https://github.com/soumilshah1995/Preventing-Selenium-from-being-detected
 
 https://www.webnots.com/list-of-firefox-about-pages/
 
+very helpful
+https://stackoverflow.com/questions/69571950/deprecationwarning-firefox-profile-has-been-deprecated-please-pass-in-an-optio
