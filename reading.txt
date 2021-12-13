@@ -7,3 +7,13 @@ https://free-proxy-list.net/blog/rotating-proxy-selenium
 
 https://www.py4u.net/discuss/201238
 
+https://sites.google.com/a/chromium.org/chromedriver/home
+https://sites.google.com/chromium.org/driver/
+
+https://stackoverflow.com/questions/68895582/how-to-avoid-a-bot-detection-and-scrape-a-website-using-python
+https://www.coches.net/segunda-mano/
+
+https://github.com/soumilshah1995/Preventing-Selenium-from-being-detected
+
+https://www.webnots.com/list-of-firefox-about-pages/
+

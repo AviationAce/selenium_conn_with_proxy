@@ -6,3 +6,31 @@
         # capabilities = webdriver.DesiredCapabilities.FIREFOX
         # ff_proxy.add_to_capabilities(capabilities)
         
+"C:\Users\ChopperDave64\Downloads\chrome-win\chrome-win\chrome.exe"
+"C:\Windows\System32\chromedriver.exe"
+
+chromedriver.exe renamed to chromedriver.exe_ at these locations
+C:\Users\ChopperDave64\AppData\Roaming\Python\Python37\site-packages\chromedriver_binary
+C:\Users\ChopperDave64\AppData\Roaming\undetected_chromedriver
+
+
+
+class ff_Profile:
+    def __init__(self):
+        print('  ff_Profile init')
+        my_proxy_addr = '127.0.0.1:1080'
+        ip, port = my_proxy_addr.split(':')
+        self.ff_profile = webdriver.FirefoxProfile()
+        self.ff_profile.set_preference('network.proxy.type', 1)
+        self.ff_profile.set_preference('network.proxy.socks', ip)
+        self.ff_profile.set_preference('network.proxy.socks_port', int(port))
+        print('  ff_Profile init... done')
+
+    def get(self):
+        return self.ff_profile
+
+        # ff_profile = ff_Profile()
+        # ff_profile = ff_profile.get()
+
+        # self.driver = webdriver.Firefox(executable_path=gd_path, options=ff_options, firefox_profile=ff_profile, service = ff_service)
+        # self.driver = webdriver.Firefox(options=ff_options, firefox_profile=ff_profile, service=ff_service)
