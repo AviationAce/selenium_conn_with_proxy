@@ -1,6 +1,3 @@
-from selenium.webdriver.common import service
-
-
 try:
     from selenium import webdriver
     from selenium.webdriver import Firefox
@@ -20,7 +17,6 @@ try:
     print('FireFox_conn: all module are loaded ')
 
 except Exception as e:
-
     print("Error ->>>: {} ".format(e))
 
 class ff_Options:
