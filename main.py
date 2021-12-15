@@ -15,7 +15,6 @@ def main():
     ff_driver.get('http://httpbin.org/ip')
     GU.GenericUtils.SleepFor(10, 'will quit after pause')
     ff_driver.quit()
-    print(sys.path)
 
 
 if __name__ == "__main__":

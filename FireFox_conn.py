@@ -6,7 +6,7 @@ try:
     from selenium.webdriver.firefox.options import Options
     from selenium.webdriver.support.ui import WebDriverWait
     from selenium.webdriver.common.action_chains import ActionChains
-    from selenium.webdriver.support import expected_conditions as ec
+    from selenium.webdriver.support import expected_conditions as EC
     from selenium.common.exceptions import TimeoutException
     from selenium.webdriver.common.proxy import Proxy, ProxyType
     from selenium.webdriver.firefox.service import Service
