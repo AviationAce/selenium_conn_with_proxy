@@ -7,17 +7,19 @@ try:
     from selenium.webdriver.support.ui import WebDriverWait
     from selenium.webdriver.common.action_chains import ActionChains
     from selenium.webdriver.support import expected_conditions as EC
-    from selenium.common.exceptions import TimeoutException
+    # from selenium.common.exceptions import TimeoutException
     from selenium.webdriver.common.proxy import Proxy, ProxyType
     from selenium.webdriver.firefox.service import Service
-    from selenium.webdriver.firefox import firefox_profile
-    import time
+    # from selenium.webdriver.firefox import firefox_profile
+    # import time
+    import pickle
     # from webdriverdownloader import GeckoDriverDownloader
     import GenericUtils as GU
     print('FireFox_conn: all module are loaded ')
 
 except Exception as e:
     print("Error ->>>: {} ".format(e))
+
 
 class ff_Options:
     def __init__(self):
@@ -39,11 +41,11 @@ class ff_Options:
         self.ff_options.set_preference('network.proxy.socks', ip)
         self.ff_options.set_preference('network.proxy.socks_port', int(port))
 
-
         print('  ff_Options init... done')
 
-    def get(self): 
+    def get(self):
         return self.ff_options
+
 
 class ff_WebDriver:
     def __init__(self):
@@ -58,6 +60,22 @@ class ff_WebDriver:
         self.driver = webdriver.Firefox(options=ff_options, service=ff_service)
         print('ff_WebDriver init... done')
 
+    def BrowserCookies(self, RorW):
+        cookie_file = "ff_cookies.pkl"
+        cookies = self.driver_instance.get_cookies()
+        if RorW == 'R':
+            print('reading cookies...', end='')
+            cookies = pickle.load(open(cookie_file, "rb"))
+            for cookie in cookies:
+                self.driver_instance.add_cookie(cookie)
+            print('done!')
+
+        if RorW == 'W':
+            print('writing cookies...', end='')
+            pickle.dump(self.driver_instance.get_cookies(),
+                        open(cookie_file, "wb"))
+            print('done!')
+
 
 def main():
     print('FireFox_conn start')
@@ -65,8 +83,9 @@ def main():
     ff_driver = ff_conn.driver
     ff_driver.get('https://www.whatismyip.com/')
     GU.GenericUtils.SleepFor(10, 'will quit after pause')
-
+    
     ff_driver.quit()
+
 
 if __name__ == "__main__":
     main()
