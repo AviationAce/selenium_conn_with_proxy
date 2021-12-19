@@ -20,6 +20,7 @@ try:
 except Exception as e:
     print("Error ->>>: {} ".format(e))
 
+myGU = GU.GenericUtils()
 
 class ff_Options:
     def __init__(self):
@@ -62,17 +63,17 @@ class ff_WebDriver:
 
     def BrowserCookies(self, RorW):
         cookie_file = "ff_cookies.pkl"
-        cookies = self.driver_instance.get_cookies()
+        cookies = self.driver.get_cookies()
         if RorW == 'R':
             print('reading cookies...', end='')
             cookies = pickle.load(open(cookie_file, "rb"))
             for cookie in cookies:
-                self.driver_instance.add_cookie(cookie)
+                self.driver.add_cookie(cookie)
             print('done!')
 
         if RorW == 'W':
             print('writing cookies...', end='')
-            pickle.dump(self.driver_instance.get_cookies(),
+            pickle.dump(self.driver.get_cookies(),
                         open(cookie_file, "wb"))
             print('done!')
 
@@ -82,8 +83,8 @@ def main():
     ff_conn = ff_WebDriver()
     ff_driver = ff_conn.driver
     ff_driver.get('https://www.whatismyip.com/')
-    GU.GenericUtils.SleepFor(10, 'will quit after pause')
-    
+    myGU.SleepFor(10, 'will quit after pause')
+
     ff_driver.quit()
 
 
