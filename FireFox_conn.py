@@ -50,6 +50,7 @@ class ff_Options:
 
 class ff_WebDriver:
     def __init__(self):
+        self.int_done = False
         print('ff_WebDriver init')
         ff_options = ff_Options()
         ff_options = ff_options.get()
@@ -58,8 +59,14 @@ class ff_WebDriver:
         ff_service = Service()
         ff_service.path = gd_path
 
-        self.driver = webdriver.Firefox(options=ff_options, service=ff_service)
-        print('ff_WebDriver init... done')
+        try:
+            self.driver = webdriver.Firefox(options=ff_options, service=ff_service)
+            print('ff_WebDriver init... done')
+            self.int_done = True
+        
+        except Exception as e:
+            print("Error ->>>: {} ".format(e))
+
 
     def BrowserCookies(self, RorW):
         cookie_file = "ff_cookies.pkl"
@@ -81,6 +88,9 @@ class ff_WebDriver:
 def main():
     print('FireFox_conn start')
     ff_conn = ff_WebDriver()
+    if ff_conn.int_done == False:
+        myGU.SleepFor(10,'The FireFox driver failed to init.  Waite 10 seconds and try just one more time.')
+        ff_conn = ff_WebDriver()
     ff_driver = ff_conn.driver
     ff_driver.get('https://www.whatismyip.com/')
     myGU.SleepFor(10, 'will quit after pause')
