@@ -14,6 +14,7 @@ try:
     import pickle
     # from webdriverdownloader import GeckoDriverDownloader
     import GenericUtils as GU
+    import os
     print('FireFox_conn: all module are loaded ')
 
 except Exception as e:
@@ -67,21 +68,24 @@ class ff_WebDriver:
             print("Error ->>>: {} ".format(e))
 
 
-    def BrowserCookies(self, RorW):
-        cookie_file = "ff_cookies.pkl"
-        cookies = self.driver.get_cookies()
-        if RorW == 'R':
-            print('reading cookies...', end='')
-            cookies = pickle.load(open(cookie_file, "rb"))
-            for cookie in cookies:
-                self.driver.add_cookie(cookie)
-            print('done!')
+    def BrowserCookies(self, RorW, cookie_file):
+        # cookie_file = "ff_cookies.pkl"
+        if os.path.exists(cookie_file):
+            cookies = self.driver.get_cookies()
+            if RorW == 'R':
+                print('reading cookies...', end='')
+                cookies = pickle.load(open(cookie_file, "rb"))
+                for cookie in cookies:
+                    self.driver.add_cookie(cookie)
+                print('done!')
 
-        if RorW == 'W':
-            print('writing cookies...', end='')
-            pickle.dump(self.driver.get_cookies(),
-                        open(cookie_file, "wb"))
-            print('done!')
+            if RorW == 'W':
+                print('writing cookies...', end='')
+                pickle.dump(self.driver.get_cookies(),
+                            open(cookie_file, "wb"))
+                print('done!')
+        else:
+            print(cookie_file + ': does not exist')
 
 
 def main():
