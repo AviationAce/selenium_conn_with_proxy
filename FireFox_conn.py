@@ -11,7 +11,6 @@ try:
     from selenium.webdriver.common.proxy import Proxy, ProxyType
     from selenium.webdriver.firefox.service import Service
     # from selenium.webdriver.firefox import firefox_profile
-    # import time
     import pickle
     # from webdriverdownloader import GeckoDriverDownloader
     import GenericUtils as GU

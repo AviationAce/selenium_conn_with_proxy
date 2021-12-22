@@ -20,8 +20,9 @@ try:
     print('Chrome_conn: all module are loaded ')
 
 except Exception as e:
-
     print("Error ->>>: {} ".format(e))
+
+myGU = GU.GenericUtils()
 
 class crm_Options:
     def __init__(self):
@@ -68,7 +69,7 @@ class crm_WebDriver:
 
 
 def main():
-    print('FireFox_conn start')
+    print('Chrome_conn start')
     crm_conn = crm_WebDriver()
     crm_driver = crm_conn.driver
     crm_driver.get('https://www.whatismyip.com/')
