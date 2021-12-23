@@ -22,6 +22,7 @@ except Exception as e:
 
 myGU = GU.GenericUtils()
 
+
 class ff_Options:
     def __init__(self):
         print('  ff_Options init')
@@ -60,13 +61,13 @@ class ff_WebDriver:
         ff_service.path = gd_path
 
         try:
-            self.driver = webdriver.Firefox(options=ff_options, service=ff_service)
+            self.driver = webdriver.Firefox(
+                options=ff_options, service=ff_service)
             print('ff_WebDriver init... done')
             self.int_done = True
-        
+
         except Exception as e:
             print("Error ->>>: {} ".format(e))
-
 
     def BrowserCookies(self, RorW, cookie_file):
         # cookie_file = "ff_cookies.pkl"
@@ -78,21 +79,22 @@ class ff_WebDriver:
                 for cookie in cookies:
                     self.driver.add_cookie(cookie)
                 print('done!')
-
-            if RorW == 'W':
-                print('writing cookies...', end='')
-                pickle.dump(self.driver.get_cookies(),
-                            open(cookie_file, "wb"))
-                print('done!')
         else:
             print(cookie_file + ': does not exist')
+
+        if RorW == 'W':
+            print('writing cookies...', end='')
+            pickle.dump(self.driver.get_cookies(),
+                        open(cookie_file, "wb"))
+            print('done!')
 
 
 def main():
     print('FireFox_conn start')
     ff_conn = ff_WebDriver()
     if ff_conn.int_done == False:
-        myGU.SleepFor(10,'The FireFox driver failed to init.  Waite 10 seconds and try just one more time.')
+        myGU.SleepFor(
+            10, 'The FireFox driver failed to init.  Waite 10 seconds and try just one more time.')
         ff_conn = ff_WebDriver()
     ff_driver = ff_conn.driver
     ff_driver.get('https://www.whatismyip.com/')
