@@ -70,14 +70,16 @@ class ff_WebDriver:
             print("Error ->>>: {} ".format(e))
 
     def BrowserCookies(self, RorW, cookie_file):
-        # cookie_file = "ff_cookies.pkl"
         if os.path.exists(cookie_file):
             cookies = self.driver.get_cookies()
             if RorW == 'R':
                 print('reading cookies...', end='')
                 cookies = pickle.load(open(cookie_file, "rb"))
                 for cookie in cookies:
-                    self.driver.add_cookie(cookie)
+                    try:
+                        self.driver.add_cookie(cookie)
+                    except Exception as e:
+                        print("Error ->>>: {} ".format(e))
                 print('done!')
         else:
             print(cookie_file + ': does not exist')
