@@ -73,7 +73,7 @@ class ff_WebDriver:
         if os.path.exists(cookie_file):
             cookies = self.driver.get_cookies()
             if RorW == 'R':
-                print('reading cookies...', end='')
+                print(cookie_file + ' reading cookies...', end='')
                 cookies = pickle.load(open(cookie_file, "rb"))
                 for cookie in cookies:
                     try:
@@ -85,7 +85,7 @@ class ff_WebDriver:
             print(cookie_file + ': does not exist')
 
         if RorW == 'W':
-            print('writing cookies...', end='')
+            print(cookie_file + ' writing cookies...', end='')
             pickle.dump(self.driver.get_cookies(),
                         open(cookie_file, "wb"))
             print('done!')
