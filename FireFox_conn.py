@@ -15,12 +15,32 @@ try:
     # from webdriverdownloader import GeckoDriverDownloader
     import GenericUtils as GU
     import os
+    from fp.fp import FreeProxy
+    from fake_useragent import UserAgent
+
     print('FireFox_conn: all module are loaded ')
 
 except Exception as e:
     print("Error ->>>: {} ".format(e))
 
 myGU = GU.GenericUtils()
+
+
+class Spoofer(object):
+
+    def __init__(self, country_id=['US'], rand=True, anonym=True):
+        self.country_id = country_id
+        self.rand = rand
+        self.anonym = anonym
+        self.userAgent, self.ip = self.get()
+
+    def get(self):
+        ua = UserAgent()
+        # proxy = FreeProxy(country_id=self.country_id,
+        #                   rand=self.rand, anonym=self.anonym).get()
+        # ip = proxy.split("://")[1]
+        ip = '3.95.61.16'
+        return ua.random, ip
 
 
 class ff_Options:
@@ -36,6 +56,7 @@ class ff_Options:
             '--disable-blink-features=AutomationControlled')
         self.ff_options.add_argument("disable-infobars")
         self.ff_options.add_argument('user-agent=')
+
         # NOTE: Using ShadowSocks on Windows.  That's why there is not username and password
         my_proxy_addr = '127.0.0.1:1080'
         ip, port = my_proxy_addr.split(':')
@@ -49,11 +70,36 @@ class ff_Options:
         return self.ff_options
 
 
+class ff_Options_fp:
+    def __init__(self):
+        print('  ff_Options_fp init')
+        self.ff_options = Options()
+        # self.ff_options.add_argument('--single-process')
+        self.ff_options.add_argument('--disable-dev-shm-usage')
+        # self.ff_options.add_argument("--incognito")
+        self.ff_options.add_argument(
+            '--disable-blink-features=AutomationControlled')
+        self.ff_options.add_argument(
+            '--disable-blink-features=AutomationControlled')
+        self.ff_options.add_argument("disable-infobars")
+        self.ff_options.add_argument('user-agent=')
+
+        self.helperSpoofer = Spoofer()
+        self.ff_options.add_argument(
+            'user-agent={}'.format(self.helperSpoofer.userAgent))
+        self.ff_options.add_argument('--proxy-server=%s' % self.helperSpoofer.ip)
+
+        print('  ff_Options_fp init... done')
+
+    def get(self):
+        return self.ff_options
+
+
 class ff_WebDriver:
     def __init__(self):
         self.int_done = False
         print('ff_WebDriver init')
-        ff_options = ff_Options()
+        ff_options = ff_Options_fp()
         ff_options = ff_options.get()
 
         gd_path = 'C:\\Users\\ChopperDave64\\bin\\geckodriver.exe'
@@ -100,7 +146,7 @@ def main():
         ff_conn = ff_WebDriver()
     ff_driver = ff_conn.driver
     ff_driver.get('https://www.whatismyip.com/')
-    myGU.SleepFor(10, 'will quit after pause')
+    myGU.SleepFor(60, 'will quit after pause')
 
     ff_driver.quit()
 

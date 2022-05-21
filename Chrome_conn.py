@@ -18,6 +18,9 @@ try:
     # from webdriverdownloader import GeckoDriverDownloader
     import GenericUtils as GU
     print('Chrome_conn: all module are loaded ')
+    import pickle
+    # from webdriverdownloader import GeckoDriverDownloader
+    import os
 
 except Exception as e:
     print("Error ->>>: {} ".format(e))
@@ -28,14 +31,14 @@ class crm_Options:
     def __init__(self):
         print('crm_Options init')
         self.crm_options = webdriver.ChromeOptions()
-        my_proxy_addr = '127.0.0.1:1080'
-        self.crm_options.add_argument('--proxy-server=socks5://' + my_proxy_addr)
+        # my_proxy_addr = '127.0.0.1:1080'
+        # self.crm_options.add_argument('--proxy-server=socks5://' + my_proxy_addr)
         self.crm_options.add_argument('--no-sandbox')
         self.crm_options.add_argument('--start-maximized')
-        self.crm_options.add_argument('--start-fullscreen')
-        self.crm_options.add_argument('--single-process')
+        # self.crm_options.add_argument('--start-fullscreen')
+        # self.crm_options.add_argument('--single-process')
         self.crm_options.add_argument('--disable-dev-shm-usage')
-        self.crm_options.add_argument("--incognito")
+        # self.crm_options.add_argument("--incognito")
         self.crm_options.add_argument(
             '--disable-blink-features=AutomationControlled')
         self.crm_options.add_argument(
@@ -53,30 +56,49 @@ class crm_Options:
 class crm_WebDriver:
     def __init__(self):
         print('crm_WebDriver init')
+        self.int_done = False
         crm_options = crm_Options()
         crm_options = crm_options.get()
-        # cromium_path = 'C:\\Users\\ChopperDave64\\Downloads\\chrome-win\\chrome-win\\chrome.exe'
-        cromium_path = 'C:\\Program Files (x86)\\Google\\Chrome\\Application\\chrome.exe'
-        crm_Service = Service()
-        crm_Service.path = cromium_path
-        
-        self.driver = webdriver.Chrome(service=crm_Service, options=crm_options)
+        crm_Service = Service("chromedriver.exe")
+        self.driver = webdriver.Chrome(
+            service=crm_Service, options=crm_options)
         # self.driver = webdriver.Chrome(service=crm_Service)
-        my_driver = webdriver.Chrome(cromium_path)
+        # self.driver = webdriver.Chrome(service=crm_Service)
         print('driver done')
-        self.driver = my_driver
         print('crm_WebDriver init... done')
+        self.int_done = True
+
+    def BrowserCookies(self, RorW, cookie_file):
+        if os.path.exists(cookie_file):
+            cookies = self.driver.get_cookies()
+            if RorW == 'R':
+                print(cookie_file + ' reading cookies...', end='')
+                cookies = pickle.load(open(cookie_file, "rb"))
+                for cookie in cookies:
+                    try:
+                        self.driver.add_cookie(cookie)
+                    except Exception as e:
+                        print("Error ->>>: {} ".format(e))
+                print('done!')
+        else:
+            print(cookie_file + ': does not exist')
+
+        if RorW == 'W':
+            print(cookie_file + ' writing cookies...', end='')
+            pickle.dump(self.driver.get_cookies(),
+                        open(cookie_file, "wb"))
+            print('done!')
 
 
 def main():
     print('Chrome_conn start')
     crm_conn = crm_WebDriver()
     crm_driver = crm_conn.driver
-    crm_driver.get('https://www.whatismyip.com/')
+    # crm_driver.get('https://www.whatismyip.com/')
+    crm_driver.get('https://www.fieldnation.com/login')
 
-    print('sleeping...')
-    time.sleep(10)
-    GU.GenericUtils.SleepFor(10, 'will quit after pause')
+    a = input()
+    myGU.SleepFor(3, 'will quit after pause')
 
     crm_driver.quit()
 
