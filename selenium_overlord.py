@@ -49,7 +49,7 @@ class selenium_overlord:
             self.b_stat = True
             self.da_driver = self.da_conn.driver
 
-        return self.da_conn, stat
+        return self.da_conn
 
 
 def main():
