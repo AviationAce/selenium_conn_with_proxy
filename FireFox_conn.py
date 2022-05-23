@@ -18,7 +18,7 @@ try:
     from fp.fp import FreeProxy
     from fake_useragent import UserAgent
 
-    print('FireFox_conn: all module are loaded ')
+    print('FireFox_conn: all modules are loaded ')
 
 except Exception as e:
     print("Error ->>>: {} ".format(e))
@@ -127,11 +127,11 @@ class ff_WebDriver:
                     except Exception as e:
                         print("Error ->>>: {} ".format(e))
                 print('done!')
-        else:
             print(cookie_file + ': does not exist')
 
         if RorW == 'W':
             print(cookie_file + ' writing cookies...', end='')
+        else:
             pickle.dump(self.driver.get_cookies(),
                         open(cookie_file, "wb"))
             print('done!')

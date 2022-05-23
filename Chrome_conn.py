@@ -17,7 +17,7 @@ try:
     import time
     # from webdriverdownloader import GeckoDriverDownloader
     import GenericUtils as GU
-    print('Chrome_conn: all module are loaded ')
+    print('Chrome_conn: all modules are loaded ')
     import pickle
     # from webdriverdownloader import GeckoDriverDownloader
     import os
