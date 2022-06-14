@@ -27,45 +27,45 @@ except Exception as e:
 
 myGU = GU.GenericUtils()
 
-class crm_Options:
+class cr_Options:
     def __init__(self):
-        print('crm_Options init')
-        self.crm_options = webdriver.ChromeOptions()
+        print('cr_Options init')
+        self.cr_options = webdriver.ChromeOptions()
         # my_proxy_addr = '127.0.0.1:1080'
-        # self.crm_options.add_argument('--proxy-server=socks5://' + my_proxy_addr)
-        self.crm_options.add_argument('--no-sandbox')
-        self.crm_options.add_argument('--start-maximized')
-        # self.crm_options.add_argument('--start-fullscreen')
-        # self.crm_options.add_argument('--single-process')
-        self.crm_options.add_argument('--disable-dev-shm-usage')
-        # self.crm_options.add_argument("--incognito")
-        self.crm_options.add_argument(
+        # self.cr_options.add_argument('--proxy-server=socks5://' + my_proxy_addr)
+        self.cr_options.add_argument('--no-sandbox')
+        self.cr_options.add_argument('--start-maximized')
+        # self.cr_options.add_argument('--start-fullscreen')
+        # self.cr_options.add_argument('--single-process')
+        self.cr_options.add_argument('--disable-dev-shm-usage')
+        # self.cr_options.add_argument("--incognito")
+        self.cr_options.add_argument(
             '--disable-blink-features=AutomationControlled')
-        self.crm_options.add_argument(
+        self.cr_options.add_argument(
             '--disable-blink-features=AutomationControlled')
-        self.crm_options.add_experimental_option('useAutomationExtension', False)
-        self.crm_options.add_experimental_option(
+        self.cr_options.add_experimental_option('useAutomationExtension', False)
+        self.cr_options.add_experimental_option(
             "excludeSwitches", ["enable-automation"])
-        self.crm_options.add_argument("disable-infobars")
-        print('crm_options init... done')
+        self.cr_options.add_argument("disable-infobars")
+        print('cr_options init... done')
 
     def get(self):
-        return self.crm_options
+        return self.cr_options
 
 
-class crm_WebDriver:
+class cr_WebDriver:
     def __init__(self):
-        print('crm_WebDriver init')
+        print('cr_WebDriver init')
         self.int_done = False
-        crm_options = crm_Options()
-        crm_options = crm_options.get()
-        crm_Service = Service("chromedriver.exe")
+        cr_options = cr_Options()
+        cr_options = cr_options.get()
+        cr_Service = Service("chromedriver.exe")
         self.driver = webdriver.Chrome(
-            service=crm_Service, options=crm_options)
-        # self.driver = webdriver.Chrome(service=crm_Service)
-        # self.driver = webdriver.Chrome(service=crm_Service)
+            service=cr_Service, options=cr_options)
+        # self.driver = webdriver.Chrome(service=cr_Service)
+        # self.driver = webdriver.Chrome(service=cr_Service)
         print('driver done')
-        print('crm_WebDriver init... done')
+        print('cr_WebDriver init... done')
         self.int_done = True
 
     def BrowserCookies(self, RorW, cookie_file):
@@ -92,15 +92,15 @@ class crm_WebDriver:
 
 def main():
     print('Chrome_conn start')
-    crm_conn = crm_WebDriver()
-    crm_driver = crm_conn.driver
-    # crm_driver.get('https://www.whatismyip.com/')
-    crm_driver.get('https://www.fieldnation.com/login')
+    cr_conn = cr_WebDriver()
+    cr_driver = cr_conn.driver
+    # cr_driver.get('https://www.whatismyip.com/')
+    cr_driver.get('https://www.fieldnation.com/login')
 
     a = input()
     myGU.SleepFor(3, 'will quit after pause')
 
-    crm_driver.quit()
+    cr_driver.quit()
 
 
 if __name__ == "__main__":
